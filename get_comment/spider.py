@@ -1,9 +1,11 @@
 # coding:utf-8
 
+import threading
+
 import requests
 from bs4 import BeautifulSoup
-import threading
-from SQL import save_mysql  # 导入sql存储数据
+
+from get_comment.SQL import save_mysql  # 导入sql存储数据
 
 
 class spiders:

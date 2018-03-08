@@ -1,14 +1,16 @@
-from bs4 import BeautifulSoup
-import SQL
-import requests
-import time
 import re
-import getprice
+import time
+
+import requests
+from bs4 import BeautifulSoup
+
+from get_comment import SQL
+from spider import getprice
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
                           ' AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36'}
 
-for i in range(20223, 21168, 2):
+for i in range(1, 21168, 2):
     sss = SQL.save_mysql()
     link = sss.read_link(i)
     try:
