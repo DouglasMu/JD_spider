@@ -1,6 +1,5 @@
 # coding:utf-8
 import pymysql
-import re
 
 
 # 将得到的数据存入数据库中mysql
@@ -81,7 +80,7 @@ class save_mysql:
     def read_comment_phone(self, phone_id, i):
         conn = pymysql.connect(user=self.user, passwd=self.password, host=self.host, db="jd", charset="utf8")
         cursor = conn.cursor()
-        sql = "SELECT content FROM phone_%s WHERE id = %s"
+        sql = "SELECT content FROM phone_%s WHERE id =%s"
         cursor.execute(sql, (phone_id, i))
         comment = cursor.fetchall()
         conn.close()
@@ -94,5 +93,14 @@ class save_mysql:
               "where table_schema=%s"
         cursor.execute(sql, databast_name)
         table_list = cursor.fetchall()
-        return table_list
         conn.close()
+        return table_list
+
+    def select_phone_info(self):
+        conn = pymysql.connect(user=self.user, passwd=self.password, host=self.host, db="jd", charset="utf8")
+        cursor = conn.cursor()
+        sql = "SELECT phone_name,price,phone_id FROM phone_info "
+        cursor.execute(sql)
+        phone_info = cursor.fetchall()
+        conn.close()
+        return phone_info

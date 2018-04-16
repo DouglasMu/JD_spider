@@ -1,13 +1,14 @@
 # coding:utf-8
-import re
-import json
-import jieba.posseg as pseg
-import string
 import datetime
+import re
+import string
+
+import jieba.posseg as pseg
 import zhon.hanzi
+
 import get_comment.SQL
 
-#   要清洗掉的中文标点
+#   要清洗掉的标点
 ignoring_words = list(zhon.hanzi.punctuation)+list(string.punctuation)
 #   数据库表中没有存储评论的表名称
 ignoring_table = ['phone_info', 'phone_url', 'error_table']
@@ -51,10 +52,10 @@ def get_phone_table():
 
 #   调用其他函数完成数据的存储，格式为txt
 def save_file(phone_id1):
-    with open('E:\\PythonFile\\tingyongci.txt') as ti:
+    with open('F:\\PythonFile\\tingyongci.txt') as ti:
         ti_list = list(ti.read())  # 获取停用词表（综合哈工大停用词词表）
     for i in range(1, 1000):
-        with open('E:\\PythonFile\\tingyongci.txt') as ti:
+        with open('F:\\PythonFile\\tingyongci.txt') as ti:
             ti_list = list(ti.read())  # 获取停用词表（综合哈工大停用词词表）
             try:
                 new_dic = {}
@@ -67,7 +68,7 @@ def save_file(phone_id1):
             except:
                 continue
             print(new_dic)
-            text_save(new_dic, 'E:\\PythonFile\\jd\\phone\\%s.txt' % phone_id1)
+            text_save(new_dic, 'F:\\PythonFile\\jd\\phone\\%s.txt' % phone_id1)
     print('----------------------id=%s---------------------------' % phone_id)
 
 

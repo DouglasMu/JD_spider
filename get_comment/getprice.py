@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
-import urllib.request
 import json
+import urllib.request
+
 import requests
 
 

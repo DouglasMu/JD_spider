@@ -5,7 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from get_comment import SQL
-from spider import getprice
+from get_comment import getprice
 
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
                           ' AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36'}

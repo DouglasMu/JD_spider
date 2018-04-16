@@ -2,10 +2,11 @@
 import datetime
 def word_frequency():
     word_dict = {}
-    with open('E:\\PythonFile\\tingyongci.txt') as ti:
+    with open('F:\\PythonFile\\tingyongci.txt') as ti:
         ti_list = list(ti.read())   #   获取停用词表（综合哈工大停用词词表）
-    with open('E:\\PythonFile\\jd\\phone\\3133927.txt') as wf:
+    with open('F:\\PythonFile\\jd\\phone\\3133927.txt') as wf:
         comments = list(wf.read().split())
+        print(comments)
         for comment in comments:
             if comment in ti_list:
                 continue
@@ -14,7 +15,7 @@ def word_frequency():
                     word_dict[comment] = int(1)
                 else:
                     word_dict[comment] += 1
-    file = open('E:\\PythonFile\\jd\\phone\\test.txt', mode='a')
+    file = open('F:\\PythonFile\\jd\\phone\\test.txt', mode='a')
     sorted(word_dict.items(), key=lambda item: item[1])
     for key in word_dict:
         print(key, word_dict[key])
